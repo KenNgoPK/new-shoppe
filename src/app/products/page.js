@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import ProductItem from './ProductItem'
+import Slide from '@/components/Slide/Slide'
 
 
 let page = 1 
@@ -51,9 +52,9 @@ const Products = () => {
 
     return (
         <div>
-            <Header />
-            <h1 >Products</h1>
-            <h1>Hello</h1>
+            <Header/>
+            <Slide/>
+            <h1 className='product' >Products</h1>
             <ul>
                 {
                     products.map((product) => {
