@@ -1,6 +1,8 @@
 'use client'
 import { useState,useEffect } from "react"
 import { useParams } from "next/navigation"
+import Header from '@/components/Header/Header'
+import './page.css'
 
 const Product = () =>{
     const params = useParams()
@@ -24,11 +26,27 @@ const Product = () =>{
             {
                 product && (
                     <div>
-                        <h1>Product Id: {product.id}</h1>
-                        <p>Product Name: {product.name}</p>
-                        <img src={product.imgurl}/>
-                        <p>Product Price: {product.price}</p>
-                        <button>+</button>
+                        <Header/>
+                        <div className="container">
+                            <div className="fontProducts">
+                                <p className="productName">Tên sẵn phẫm: {product.name}</p>
+                                <p className="productPrice">Giá sẵn phẫm: {product.price}</p>
+                                <p className="productId">Product Id: {product.id}</p>
+                            </div>
+                            <img className="img" src={product.imgurl}/>
+                            <div className="btn">
+                                <div className="amount">
+                                    <p>Số lượng</p>
+                                    <button className="increaseBtn">-</button>
+                                    <input type="text" className="input"/>
+                                    <button className="decreaseBtn">+</button>
+                                </div>
+                                <button className="addToCart">Thêm vào giỏ hàng</button>
+                                <button className="buyNow">Mua ngay</button> 
+                            </div>
+                        
+                        </div>
+                        
                     </div>
                 )
             }

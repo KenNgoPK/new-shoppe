@@ -1,0 +1,16 @@
+.footer {
+    background-color: orangered;
+    width: 100%;
+    padding: 20px 0; 
+    color: white;
+    bottom: 0;
+    text-align: center; 
+    justify-content: flex-end;
+    margin-top: 5rem;
+}
+
+.footer p {
+    font-weight: 100;
+    margin: 5px 0; 
+    font-size: 14px;
+}

@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react'
 
 import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer'
+import Footer from '@/components/Footer/Footer'
 import ProductItem from './ProductItem'
 import Slide from '@/components/Slide/Slide'
+import './page.css'
 
 
-let page = 1 
 
 const Products = () => {
     // let page = 1 
@@ -54,7 +54,6 @@ const Products = () => {
         <div>
             <Header/>
             <Slide/>
-            <h1 className='product' >Products</h1>
             <ul>
                 {
                     products.map((product) => {
@@ -65,11 +64,14 @@ const Products = () => {
                     })
                 }
             </ul>
-            <p>Page: {page} / { totalPages } </p>
-            <button onClick={handlePreviousBtn} className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>Previous</button>
-            <button onClick={handleNextBtn}>Next</button>
+            <p className='page' >Page: {page} / { totalPages } </p>
+            <div className='btnContainer'>
+                <button className='btn' onClick={handlePreviousBtn}>Previous</button>
+                <button className='btn' onClick={handleNextBtn}>Next</button>
+            </div>
+            
 
-            <Footer />
+            <Footer/>
         </div>
     )
 }
