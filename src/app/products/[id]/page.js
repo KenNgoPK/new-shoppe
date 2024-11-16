@@ -8,6 +8,7 @@ const Product = () =>{
     const params = useParams()
     // use... dc gọi là hook(móc): nv là móc data
     const [product,setProduct] = useState()
+    const [quantity,setQuantity] = useState(1)
     //Lúc này nó sẽ là false => ko hiển thị
 
     async function fetchProduct() {
@@ -21,6 +22,39 @@ const Product = () =>{
         fetchProduct()
     },[])
 
+    function handleQuantityInputChange(value){
+        setQuantity(value)
+    }
+    
+    function handleDecreaseBtn(value){
+        setQuantity(prev => prev -1)
+    }
+
+    function handleIncreaseBtn(value){
+        setQuantity(prev => prev +1)
+    }
+
+
+    async function handleAddToCart() {
+        const response = await fetch('https://form-test-api.vercel.app/api/cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Định dạng dữ liệu gửi lên là JSON
+            },
+            body: JSON.stringify({
+                userId: 'khanh01',
+                productId: product.id,
+                quantity: quantity
+            })
+        })
+
+        if (response.status === 200) {
+            alert('Thêm vào giỏ hàng thành công')
+        } else {
+            alert('Thêm vào giỏ hàng thất bại')
+        }
+    }
+    //suggest use this 
     return(
         <>
             {
@@ -34,14 +68,22 @@ const Product = () =>{
                                 <p className="productId">Product Id: {product.id}</p>
                             </div>
                             <img className="img" src={product.imgurl}/>
-                            <div className="btn">
+                            <div className="cartForm">
                                 <div className="amount">
                                     <p>Số lượng</p>
-                                    <button className="increaseBtn">-</button>
-                                    <input type="text" className="input"/>
-                                    <button className="decreaseBtn">+</button>
+                                    <button onClick={handleDecreaseBtn} className="decreaseBtn">-</button>
+                                    <input value={quantity} type="text" className="input" onChange={(e) => handleQuantityInputChange(Number(e.target.value))}/>
+                                    <button onClick={handleIncreaseBtn} className="increaseBtn">+</button>
+                                    {/*
+                                    css ko nên css cái thẻ
+                                    */}
+                                    {/* 
+                                     Các hàm sự kiện (onchange,onclick...)  luôn nhận 1 tham số là event 
+                                     event.target:dùng để lấy phần tử gây ra  
+                                    
+                                    */}
                                 </div>
-                                <button className="addToCart">Thêm vào giỏ hàng</button>
+                                <button onClick={handleAddToCart} className="addToCart">Thêm vào giỏ hàng</button>
                                 <button className="buyNow">Mua ngay</button> 
                             </div>
                         
