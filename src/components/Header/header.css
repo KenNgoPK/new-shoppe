@@ -152,3 +152,7 @@
     font-size: 1.1rem;
     font-style: inherit;
 }
+
+.profile{
+    display: none;
+}

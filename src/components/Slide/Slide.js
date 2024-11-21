@@ -8,7 +8,7 @@ const Slide = () =>{
     return(
         <Carousel>
             <Carousel.Item>
-                <img src='/image/cute1.jpg' className='slideItemImg'/>
+                <img src='/image/slide1.png' className='slideItemImg'/>
                 <Carousel.Caption>
                     <h1>
                         Slide 1
@@ -16,7 +16,7 @@ const Slide = () =>{
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='/image/cute3.jpg' className='slideItemImg'/>
+                <img src='/image/slide2.jpg' className='slideItemImg'/>
                 <Carousel.Caption>
                     <h1>
                         Slide 2
@@ -24,7 +24,7 @@ const Slide = () =>{
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='/image/cute4.jpg' className='slideItemImg'/>
+                <img src='/image/slide3.jpg' className='slideItemImg'/>
                 <Carousel.Caption>
                     <h1>
                         Slide 3

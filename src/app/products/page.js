@@ -1,16 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useContext } from 'react'
+
 
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import ProductItem from './ProductItem'
 import Slide from '@/components/Slide/Slide'
 import './page.css'
+import SearchContext from '../context/SearchContext'
+import UserContext from '../context/UserContext'
+
 
 
 
 const Products = () => {
+    const {search,setSearch} = useContext(SearchContext)
+
     // let page = 1 
     // Không đặt dc bc mỗi lần nó render thì nó sẽ run từ trên xuống dưới (trừ useEffect)
     const [page, setPage] = useState(1)
@@ -30,17 +36,20 @@ const Products = () => {
         }
     }
 
-    async function fetchProducts(page) {
+    async function fetchProducts(page,search) {
         const response = await fetch(`https://form-test-api.vercel.app/api/products?page=${page}`)
+        //const response = await fetch(`https://form-test-api.vercel.app/api/products?page=${page}&search=${search}`)
         const data = await response.json()
         setTotalPages(data.totalPages)
         setProducts(data.products)
     }
+    
+
 
 
     useEffect(() => {
-        fetchProducts(page)
-    }, [page])
+        fetchProducts(page,search)
+    }, [page,search])
     //useEffect được use cho các hiệu ứng phụ 
     //mỗi khi biến trang thái được update 
     //khi thay đổi trang thì nó sẽ lấy product mới
@@ -54,6 +63,9 @@ const Products = () => {
         <div>
             <Header/>
             <Slide/>
+            <h3>
+                Kết quả cho từ khoá: {search} 
+            </h3>
             <ul>
                 {
                     products.map((product) => {
