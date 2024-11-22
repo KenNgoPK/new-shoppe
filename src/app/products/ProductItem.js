@@ -1,15 +1,27 @@
-import { useRouter } from 'next/navigation'
-
+import { useRouter } from 'next/navigation';
+import Card from 'react-bootstrap/Card';
+import './producItem.css'
 
 const ProductItem = ({ product }) => {
-    const router = useRouter()
+    const router = useRouter();
 
     return (
-        <li onClick={ () => router.push(`/products/${product.id}`) }>
-            <p>Name: {product.name}</p>
-            <img src={product.imgurl} width={100} height={100} />
-        </li>
-    )
-}
+        <Card 
+            onClick={() => router.push(`/products/${product.id}`)} 
+            style={{ width: '18rem', cursor: 'pointer' }}
+            className="product-card mb-3"
+        >
+            <Card.Img 
+                variant="top" 
+                src={product.imgurl} 
+                style={{ height: '150px', objectFit: 'cover' }} 
+                alt={product.name}
+            />
+            <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+            </Card.Body>
+        </Card>
+    );
+};
 
-export default ProductItem
+export default ProductItem;

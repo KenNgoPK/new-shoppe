@@ -7,7 +7,7 @@ import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import ProductItem from './ProductItem'
 import Slide from '@/components/Slide/Slide'
-import './page.css'
+import './style.css'
 import SearchContext from '../context/SearchContext'
 import UserContext from '../context/UserContext'
 
@@ -66,16 +66,19 @@ const Products = () => {
             <h3>
                 Kết quả cho từ khoá: {search} 
             </h3>
-            <ul>
-                {
-                    products.map((product) => {
-                        return (
-                            <ProductItem key={product.id} product={product} />
-                            //Để react bt cần phải render lại phần tử nào trong list khi có sự thay đổi
-                        )
-                    })
-                }
-            </ul>
+            <div className=''>
+                <ul>
+                    {
+                        products.map((product) => {
+                            return (
+                                <ProductItem key={product.id} product={product} />
+                                //Để react bt cần phải render lại phần tử nào trong list khi có sự thay đổi
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+            
             <p className='page' >Page: {page} / { totalPages } </p>
             <div className='btnContainer'>
                 <button className='btn' onClick={handlePreviousBtn}>Previous</button>
