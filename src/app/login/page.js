@@ -29,16 +29,16 @@ const  Login=()  => {
         }
     }
     return(
-        <div class="signup-container">
+        <div className="signup-container">
             <h1>Login</h1>
-            <div class="input-group">
+            <div className="input-group">
                 <input type="email" name="email" placeholder="email" id="email"/>
             </div>
             <div className='input-group'>
                 <input type="password" name="password" placeholder="Mật khẩu" id="password"/>
             </div>
             <button onClick={handleLoginBtn}> login </button>
-            <div class="login-link">
+            <div className="login-link">
                 Chưa có tài khoản? <Link href="/signup">Đăng kí</Link>
             </div>
         </div>

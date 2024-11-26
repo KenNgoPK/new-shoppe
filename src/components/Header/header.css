@@ -76,6 +76,7 @@
     position: relative;
     margin-right: 5%;
     margin-left: 5%;
+    cursor: pointer;
 }
 
 .search {
@@ -155,4 +156,19 @@
 
 .profile{
     display: none;
+}
+
+.header-right-item-logout{
+    margin-left: 0.3rem;
+    padding: 0.3rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: orangered;
+}
+
+.header-right-item-logout:hover{
+    color: rgb(238, 232, 232);
 }

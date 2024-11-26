@@ -9,6 +9,12 @@ import SearchContext from '@/app/context/SearchContext'
 
 
 const Header = () => {
+  function handleHome(){
+    window.location.href='/products'
+
+
+
+  }
   const {user,setUser} = useContext(UserContext)
 
   useEffect(() => {
@@ -18,6 +24,12 @@ const Header = () => {
       document.getElementById('profile').style.display = 'block'
       document.getElementById('logout').style.display = 'block'
     }
+    else{
+      document.getElementById('login').style.display = 'block'
+      document.getElementById('signup').style.display = 'block'
+      document.getElementById('profile').style.display = 'none'
+      document.getElementById('logout').style.display = 'none'
+    }
     }, [user])
 
 
@@ -25,8 +37,11 @@ const Header = () => {
   const {search,setSearch} = useContext(SearchContext)
   function handleSearchBtn(){
     setSearch(document.getElementById('searchInput').value)
-}
+  }
 
+  function handleLogoutBtn(){
+    setUser(null)
+  }
 
   return (
     <header className="header">
@@ -55,16 +70,16 @@ const Header = () => {
           <Link id='login' href="/login" className="header-right-item">
             <FontAwesomeIcon icon={faStar} /> Đăng nhập
           </Link>
-          <Link id='profile' href="/profile" className="header-right-item profile" >
+          <Link  id='profile' href="/profile" className="header-right-item profile" >
             <FontAwesomeIcon icon={faStar} /> Profile
           </Link>
-          <Link id='logout' href="/logout" className="header-right-item profile" >
-            <FontAwesomeIcon icon={faStar} /> logout
-          </Link>
+          <button id='logout' onClick={handleLogoutBtn} className="header-right-item-logout">
+            Logout
+          </button>
         </div>
       </div>
       <div className="icon-content">
-        <img className="shoppe-icon" src="/image/shoppe.png" alt="shopee" />  
+        <img onClick={handleHome} className="shoppe-icon" src="/image/shoppe.png" alt="shopee" />  
         <form className="input-container">
           <div className="search">
             <input id='searchInput' type="text" className="search-input" placeholder="Shopee bao ship 0Đ - Đăng ký ngay!" />
