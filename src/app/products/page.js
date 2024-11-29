@@ -7,7 +7,8 @@ import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import ProductItem from './ProductItem'
 import Slide from '@/components/Slide/Slide'
-import './style.css'
+import styles from './style.module.css';
+
 import SearchContext from '../context/SearchContext'
 import UserContext from '../context/UserContext'
 
@@ -43,8 +44,6 @@ const Products = () => {
         setTotalPages(data.totalPages)
         setProducts(data.products)
     }
-    
-
 
 
     useEffect(() => {
@@ -66,7 +65,8 @@ const Products = () => {
             <h3>
                 Kết quả cho từ khoá: {search} 
             </h3>
-            <div className=''>
+            
+            <div>
                 <ul>
                     {
                         products.map((product) => {
@@ -79,13 +79,11 @@ const Products = () => {
                 </ul>
             </div>
             
-            <p className='page' >Page: {page} / { totalPages } </p>
-            <div className='btnContainer'>
-                <button className='btn' onClick={handlePreviousBtn}>Previous</button>
-                <button className='btn' onClick={handleNextBtn}>Next</button>
+            <p className={styles['page']} >Page: {page} / { totalPages } </p>
+            <div className={styles['btnContainer']}>
+                <button className={styles.btn} onClick={handlePreviousBtn}>Previous</button>
+                <button className={styles.btn} onClick={handleNextBtn}>Next</button>
             </div>
-            
-
             <Footer/>
         </div>
     )

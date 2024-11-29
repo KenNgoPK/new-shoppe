@@ -172,3 +172,22 @@
 .header-right-item-logout:hover{
     color: rgb(238, 232, 232);
 }
+
+.cartlink{
+  position: relative;
+  display: flex;
+}
+
+.cartIcon{
+  height: 50px;
+  width: 50px;
+  color: black;
+  margin-left: 100px;
+  margin-top: 20px;
+
+}
+
+.cartIcon:hover{
+  color: #333333;
+
+}

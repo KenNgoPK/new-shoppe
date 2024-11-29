@@ -1,19 +1,15 @@
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faStar, faHeart, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faStar, faHeart, faCloud, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useEffect } from 'react';
 import UserContext from '@/app/context/UserContext';
 import './header.css';
 import SearchContext from '@/app/context/SearchContext'
 
-
-
 const Header = () => {
+  const totalProducts = products.reduce((total, product) => total + product.quantity, 0);
   function handleHome(){
     window.location.href='/products'
-
-
-
   }
   const {user,setUser} = useContext(UserContext)
 
@@ -31,8 +27,6 @@ const Header = () => {
       document.getElementById('logout').style.display = 'none'
     }
     }, [user])
-
-
 
   const {search,setSearch} = useContext(SearchContext)
   function handleSearchBtn(){
@@ -91,6 +85,10 @@ const Header = () => {
         button nằm trong form có có type mặc định là submit(có hành vi mặc định là load lại trang)
         
         */}
+        <p id='totalProducts'>{totalProducts}</p>
+        <Link id="cart" href="/cart" className='cartLink'>
+          <FontAwesomeIcon icon={faCartShopping} className='cartIcon' />
+        </Link>
       </div>
     </header>
   );

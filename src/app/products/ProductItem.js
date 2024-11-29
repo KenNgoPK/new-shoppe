@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import Card from 'react-bootstrap/Card';
-import './producItem.css'
+import styles from './producItem.module.css'
 
 const ProductItem = ({ product }) => {
     const router = useRouter();
@@ -21,6 +21,7 @@ const ProductItem = ({ product }) => {
                 <Card.Title>{product.name}</Card.Title>
             </Card.Body>
         </Card>
+        
     );
 };
 
