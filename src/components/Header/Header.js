@@ -7,7 +7,6 @@ import './header.css';
 import SearchContext from '@/app/context/SearchContext'
 
 const Header = () => {
-  const totalProducts = products.reduce((total, product) => total + product.quantity, 0);
   function handleHome(){
     window.location.href='/products'
   }
@@ -85,7 +84,6 @@ const Header = () => {
         button nằm trong form có có type mặc định là submit(có hành vi mặc định là load lại trang)
         
         */}
-        <p id='totalProducts'>{totalProducts}</p>
         <Link id="cart" href="/cart" className='cartLink'>
           <FontAwesomeIcon icon={faCartShopping} className='cartIcon' />
         </Link>

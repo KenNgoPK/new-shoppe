@@ -1,0 +1,55 @@
+
+.profileContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profileTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profileSubtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+
+.profileInfo p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.profileInfo span {
+    font-weight: bold;
+}
+
+
+.genderLabel {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+
+.profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

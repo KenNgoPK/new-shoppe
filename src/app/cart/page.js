@@ -6,12 +6,15 @@ import Header from "@/components/Header/Header";
 
 const Cart = () => {
     const [products, setProducts] = useState([]);
+    const [total, setTotalItemProduct] = useState(0);
+
 
     async function fetchProducts() {
         try {
             const response = await fetch(`https://form-test-api.vercel.app/api/cart?userId=khanh01`);
             const data = await response.json();
             setProducts(data.items);
+            updateTotal(data.items);
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -21,7 +24,10 @@ const Cart = () => {
         fetchProducts();
     }, []);
 
-    const totalProducts = products.reduce((total, product) => total + product.quantity, 0);
+    function updateTotal(products) {
+        const totalItems = products.reduce((total, product) => total + product.quantity, 0);
+        setTotalItemProduct(totalItems);
+    }
 
     async function handleQuantityInputChange(productId, quantity) {
         if (quantity < 0) return;
@@ -29,10 +35,11 @@ const Cart = () => {
             const response = await fetch('https://form-test-api.vercel.app/api/cart', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: 'khanh01', productId, quantity })
+                body: JSON.stringify({ userId: 'khanh01', productId: productId, quantity: quantity })
             });
             const data = await response.json();
             setProducts(data.items);
+            updateTotal(data.items);  // Update total after quantity change
         } catch (error) {
             console.error("Error updating quantity:", error);
         }
@@ -54,6 +61,7 @@ const Cart = () => {
                 });
                 const data = await response.json();
                 setProducts(data.items);
+                updateTotal(data.items);  // Update total after decreasing quantity
             } catch (error) {
                 console.error("Error decreasing quantity:", error);
             }
@@ -73,6 +81,7 @@ const Cart = () => {
             });
             const data = await response.json();
             setProducts(data.items);
+            updateTotal(data.items);  // Update total after increasing quantity
         } catch (error) {
             console.error("Error increasing quantity:", error);
         }
@@ -90,6 +99,7 @@ const Cart = () => {
             });
             const data = await response.json();
             setProducts(data.items);
+            updateTotal(data.items);  // Update total after deletion
         } catch (error) {
             console.error("Error deleting product:", error);
         }
@@ -97,39 +107,39 @@ const Cart = () => {
 
     return (
         <div>
-            <Header></Header>
-            <div className={styles.cartContainer}>
-                <h1 className={styles.cartTitle}>Cart</h1>
-                <p className={styles.totalProducts}>Total Products: {totalProducts}</p>
-                <ul className={styles.productList}>
+            <Header />
+            <div className={styles['cartContainer']}>
+                <h1 className={styles['cartTitle']}>Cart</h1>
+                <p className={styles['totalProducts']}>Total Products: {total}</p> {/* Corrected to use `total` */}
+                <ul className={styles['productList']}>
                     {products.map((product) => (
-                        <li key={product.productId} className={styles.productItem}>
-                            <div className={styles.productDetails}>
-                                <span className={styles.productId}>ID: {product.productId}</span>
+                        <li key={product.productId} className={styles['productItem']}>
+                            <div className={styles['productDetails']}>
+                                <span className={styles['productId']}>ID: {product.productId}</span>
                             </div>
-                            <div className={styles.productQuantity}>
+                            <div className={styles['productQuantity']}>
                                 <button
-                                    className={styles.quantityBtn}
+                                    className={styles['quantityBtn']}
                                     onClick={() => handleDecreaseBtn(product)}
                                 >
                                     -
                                 </button>
                                 <input
-                                    className={styles.quantityInput}
+                                    className={styles['quantityInput']}
                                     value={product.quantity}
                                     onChange={(e) =>
                                         handleQuantityInputChange(product.productId, Number(e.target.value))
                                     }
                                 />
                                 <button
-                                    className={styles.quantityBtn}
+                                    className={styles['quantityBtn']}
                                     onClick={() => handleIncreaseBtn(product)}
                                 >
                                     +
                                 </button>
                             </div>
                             <button
-                                className={styles.deleteBtn}
+                                className={styles['deleteBtn']}
                                 onClick={() => handleDeleteBtn(product)}
                             >
                                 X
@@ -139,7 +149,6 @@ const Cart = () => {
                 </ul>
             </div>
         </div>
-        
     );
 };
 

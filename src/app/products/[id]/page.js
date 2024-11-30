@@ -2,7 +2,7 @@
 import { useState,useEffect } from "react"
 import { useParams } from "next/navigation"
 import Header from '@/components/Header/Header'
-import './page.css'
+import styles from './page.module.css'
 
 const Product = () =>{
     const params = useParams()
@@ -61,19 +61,19 @@ const Product = () =>{
                 product && (
                     <div>
                         <Header/>
-                        <div className="container">
-                            <div className="fontProducts">
-                                <p className="productName">Tên sẵn phẫm: {product.name}</p>
-                                <p className="productPrice">Giá sẵn phẫm: {product.price}</p>
-                                <p className="productId">Product Id: {product.id}</p>
+                        <div className={styles.container}>
+                            <div className={styles.fontProducts}>
+                                <p className={styles.productName}>Tên sẵn phẫm: {product.name}</p>
+                                <p className={styles.productPrice}>Giá sẵn phẫm: {product.price}</p>
+                                <p className={styles.productId}>Product Id: {product.id}</p>
                             </div>
-                            <img className="img" src={product.imgurl}/>
-                            <div className="cartForm">
-                                <div className="amount">
+                            <img className={styles.img} src={product.imgurl}/>
+                            <div className={styles.cartForm}>
+                                <div className={styles.amount}>
                                     <p>Số lượng</p>
-                                    <button onClick={handleDecreaseBtn} className="decreaseBtn">-</button>
-                                    <input value={quantity} type="text" className="input" onChange={(e) => handleQuantityInputChange(Number(e.target.value))}/>
-                                    <button onClick={handleIncreaseBtn} className="increaseBtn">+</button>
+                                    <button onClick={handleDecreaseBtn} className={styles.decreaseBtn}>-</button>
+                                    <input value={quantity} type="text" className={styles.input} onChange={(e) => handleQuantityInputChange(Number(e.target.value))}/>
+                                    <button onClick={handleIncreaseBtn} className={styles.increaseBtn}>+</button>
                                     {/*
                                     css ko nên css cái thẻ
                                     */}
@@ -83,8 +83,8 @@ const Product = () =>{
                                     
                                     */}
                                 </div>
-                                <button onClick={handleAddToCart} className="addToCart">Thêm vào giỏ hàng</button>
-                                <button className="buyNow">Mua ngay</button> 
+                                <button onClick={handleAddToCart} className={styles.addToCart}>Thêm vào giỏ hàng</button>
+                                <button className={styles.buyNow}>Mua ngay</button> 
                             </div>
                         
                         </div>
