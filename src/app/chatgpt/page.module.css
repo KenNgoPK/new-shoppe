@@ -1,0 +1,111 @@
+/* Container for the whole chat window */
+.chatboxContainer {
+    width: 360px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Header of the chat (name and status indicator) */
+  .header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header .profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    object-fit: cover;
+  }
+  
+  .header .username {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .header .statusIcons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .statusIcons span {
+    margin-left: 5px;
+    font-size: 16px;
+    color: green;
+  }
+  
+  /* Chat messages area */
+  .chatMessages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chatMessage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .chatMessage .messageBubble {
+    max-width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    margin-left: 10px;
+  }
+  
+  .chatMessage.userMessage .messageBubble {
+    background-color: #e1f7d5; /* Light green for user messages */
+    align-self: flex-end;
+  }
+  
+  .chatMessage.botMessage .messageBubble {
+    background-color: #d6d6d6; /* Light gray for bot messages */
+  }
+  
+  /* Footer area (input field and send button) */
+  .footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .footer button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .footer button:hover {
+    background-color: #0056b3;
+  }
+  

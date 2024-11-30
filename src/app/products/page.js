@@ -8,7 +8,7 @@ import Footer from '@/components/Footer/Footer'
 import ProductItem from './ProductItem'
 import Slide from '@/components/Slide/Slide'
 import styles from './style.module.css';
-
+import ChatBtw from '@/components/ChatBox/Chat'
 import SearchContext from '../context/SearchContext'
 import UserContext from '../context/UserContext'
 
@@ -84,7 +84,9 @@ const Products = () => {
                 <button className={styles.btn} onClick={handlePreviousBtn}>Previous</button>
                 <button className={styles.btn} onClick={handleNextBtn}>Next</button>
             </div>
+            <ChatBtw/>
             <Footer/>
+
         </div>
     )
 }
