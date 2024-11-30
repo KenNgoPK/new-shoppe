@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from './page.module.css'
-import Header from "@/components/Header/Header";
+
 
 const Cart = () => {
     const [products, setProducts] = useState([]);
@@ -106,8 +106,7 @@ const Cart = () => {
     }
 
     return (
-        <div>
-            <Header />
+        <div> 
             <div className={styles['cartContainer']}>
                 <h1 className={styles['cartTitle']}>Cart</h1>
                 <p className={styles['totalProducts']}>Total Products: {total}</p> {/* Corrected to use `total` */}
