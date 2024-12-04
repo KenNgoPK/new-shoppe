@@ -1,0 +1,18 @@
+Câu hỏi: Dự án Frontend sử dụng Nextjs thì có cần dùng server không?
+1: Có nó nằm trong .next mục sever
+Nếu có thì server ở đây là gì, khác gì với server phía backend?
+backend
+1: backend Xử lý logic phức tạp, quản lý dữ liệu và nghiệp vụ.
+Nextjs
+1: Server Next.js chủ yếu phục vụ giao diện, đôi khi xử lý API đơn giản.
+
+
+Câu hỏi 
+1: Fix module.css
+2: Make langue with Nextjs
+3: How to make the Chatbox show in everywhere
+4: Did i need to fix anythings or do something in this wed
+5: How to add the num in cart
+5: Mini question,var
+6: Another Mini question: what we should to write in the Readme
+

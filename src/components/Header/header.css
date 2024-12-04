@@ -1,23 +1,23 @@
-
+/* Header Styles */
 .header {
     background-color: orangered;
-    position: relative;
-    border-radius: 1rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    top: 0;
-    max-width: 100vw;
     position: sticky;
+    top: 0;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
     z-index: 10;
 }
 
+/* Icon Content */
 .icon-content {
     display: flex;
-    position: relative;
-    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 1vh 2vw;
 }
 
+/* Header Left */
 .header-left {
     margin-left: 1%;
 }
@@ -29,64 +29,76 @@
     text-decoration: none;
     font-size: 1.3rem;
 }
+
 .header-left-item:hover {
     color: rgb(238, 232, 232);
 }
 
+/* Header Container */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5vw;
-    max-width: 100%;
+    width: 100%;
 }
 
+/* Header Right */
 .header-right {
     display: flex;
     justify-content: flex-end;
-    align-content: flex-start;
     margin-right: 1%;
 }
 
-.header-right-item {
+.header-right-item,
+.header-right-item-logout {
     margin-left: 0.3rem;
     padding: 0.3rem;
     text-decoration: none;
     font-size: 1.3rem;
     color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
 }
 
-.header-right-item:hover {
+.header-right-item-logout {
+    background-color: orangered;
+    border-radius: 5px;
+}
+
+.header-right-item:hover,
+.header-right-item-logout:hover {
     color: rgb(238, 232, 232);
 }
 
+/* Input Container */
 .input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
     margin-left: 15%;
+    max-width: 70%;
 }
 
+/* Shoppe Icon */
 .shoppe-icon {
     width: 5vw;
     height: 5vw;
-    margin: 1vh;
-    position: relative;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin: 1vh auto;
     cursor: pointer;
 }
 
+/* Search Bar */
 .search {
     display: flex;
     align-items: center;
-    width: 600px; 
-    padding: 5px; 
+    max-width: 90%;
+    width: 600px;
+    padding: 5px;
     border-radius: 5px;
     background-color: white;
-    position: relative;
     margin: 0 auto;
 }
 
@@ -95,8 +107,8 @@
     font-size: 16px;
     font-family: 'Arial', sans-serif;
     color: #333333;
-    outline: none;
     border: none;
+    outline: none;
     padding: 8px;
     background-color: transparent;
 }
@@ -109,27 +121,30 @@
     cursor: pointer;
     color: white;
 }
+
 .search-button:hover {
     background-color: rgb(219, 88, 28);
 }
 
+/* Suggestion Box */
 .sugges {
     padding-top: 2vh;
-    padding-bottom: 0;
     background-color: whitesmoke;
 }
 
 .suggest-things {
-    width: 35%;
-    height: 20vh;
+    width: 90%;
+    max-width: 35%;
     margin: 0 auto;
+    padding: 1rem;
     border: 0.2rem solid white;
     border-radius: 2rem;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
+/* Suggestion Utilities */
 .sugges-utility {
     display: flex;
     justify-content: center;
@@ -142,6 +157,7 @@
     align-items: center;
 }
 
+/* Suggestion Images */
 .ima-suggest {
     border: 0.2rem solid #ddd;
     border-radius: 1rem;
@@ -149,45 +165,33 @@
     height: 4vw;
 }
 
+/* Suggestion Words */
 .word-suggest {
     font-size: 1.1rem;
     font-style: inherit;
 }
 
-.profile{
+/* Profile */
+.profile {
     display: none;
 }
 
-.header-right-item-logout{
-    margin-left: 0.3rem;
-    padding: 0.3rem;
-    text-decoration: none;
-    font-size: 1.3rem;
-    color: white;
+/* Cart */
+.cartlink {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cartIcon {
+    width: 50px;
+    height: 50px;
+    color: black;
+    margin-left: 100px;
+    margin-top: 20px;
     cursor: pointer;
-    border: none;
-    background-color: orangered;
 }
 
-.header-right-item-logout:hover{
-    color: rgb(238, 232, 232);
-}
-
-.cartlink{
-  position: relative;
-  display: flex;
-}
-
-.cartIcon{
-  height: 50px;
-  width: 50px;
-  color: black;
-  margin-left: 100px;
-  margin-top: 20px;
-
-}
-
-.cartIcon:hover{
-  color: #333333;
-
+.cartIcon:hover {
+    color: #333333;
 }
